@@ -115,3 +115,6 @@ select dept_name
 from department -- to slect particular column
 
 
+
+
+
