@@ -1,0 +1,117 @@
+-- SQL COMMANDS
+
+DDL commands
+-- CREATE, ALTER, DROP, TRUNCATE
+
+DML commands
+-- INSERT, UPDATE, DELETE, MERGE
+
+TCL commands
+-- COMMIT, ROLLBACK and SAVEPOINT
+
+DCL commands
+-- GRANT and REVOKE
+
+DQL commands
+-- SELECT statement
+
+-- DDL Command
+-- Data Definition Language consist of the commands which are used to define the structure of database. 
+
+
+-- CREATE : to create objects in database
+
+Create Table department
+(
+	dept_id  varchar(10),
+	dept_name Varchar(15),
+	dept_manager varchar(20),
+	location varchar(10)
+)
+
+-- ALTER : alters the structure of database (add, delete, or modify columns in an existing table.)
+-- incase if we want to changes the data type in the Dept Table we can use alter command.
+
+alter table Department
+add column DOJ date;
+
+alter table Department
+Drop column DOJ 
+
+ALTER TABLE Department
+Alter column dept_name TYPE varchar(25) -- here we can use modify in place of alter in the second row.
+
+-- DROP : delete objects from database
+
+Drop table Department
+
+-- TRUNCATE :  is used to delete the data inside a table, but not the table itself.
+
+Truncate table Department
+
+
+
+DML commands
+-- The SQL commands that deals with the manipulation of data present in the database.
+
+-- INSERT: insert data into a table
+
+insert into department (dept_id, dept_name, dept_manager, location) values (1, 'R&D', 'Archer Vauter', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (2, 'R&D', 'Joscelin Jewer', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (3, 'HR', 'Zarah Wallsworth', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (4, 'HR', 'Way Berick', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (5, 'Marketing', 'Natividad Littefair', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (6, 'Budgeting', 'Julienne Brade', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (7, 'Marketing', 'Shayla Cullen', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (8, 'Budgeting', 'Mitch Flook', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (9, 'HR', 'Zenia Donet', 'Brazil');
+insert into department (dept_id, dept_name, dept_manager, location) values (10, 'HR', 'Rhody Greir', 'Brazil');
+
+--  UPDATE: update existing data within a table
+
+update department set dept_name = 'Finance'; -- without where clause here all the departnment name will changed to Finance.
+
+update department set dept_name = 'Finance' where dept_id = '5';
+
+
+-- DELETE: deletes all records from a table, space for the records remain
+
+Delete from department -- will delete all records in the table
+Delete from department where dept_id = '5'; -- will delete particular record.
+
+
+TCL commands
+-- TCL commands are the commands which are used to save transactions in the database. These commands are used along with DML commands.
+
+-- COMMIT: Commit command is used to permanently save any transaction into the database.
+
+SELECT * FROM department WHERE dept_name = 'HR';
+
+COMMIT; 
+
+-- ROLLBACK: This command restores the database to last committed state. It is also used with savepoint command to jump to a savepoint in a transaction.
+
+SELECT * FROM department WHERE dept_name = 'HR';
+
+ROLLBACK to ;
+
+-- SAVEPOINT: Savepoint command is used to temporarily save a transaction so that you can rollback to that point whenever necessary.
+
+SAVEPOINT
+
+DCL commands
+-- These commands deals to protect the data like grant access to users or remove the user access.
+-- GRANT: allow specified users to perform specified tasks.
+
+-- REVOKE : cancel previously granted or denied permissions.
+
+DQL commands
+-- This a querying command
+-- SELECT statement
+
+Select * from department  -- to select all columns in the table
+
+select dept_name
+from department -- to slect particular column
+
+
